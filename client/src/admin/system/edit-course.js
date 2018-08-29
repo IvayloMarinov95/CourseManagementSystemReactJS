@@ -3,25 +3,22 @@ import AdminNavigation from '../../components/AdminNavigation';
 import '../../style.css';
 import '../../form.css';
 import '../../admin.css';
+import { Provider } from 'react-redux';
+import store from '../../store.js';
+import CourseEditFrom from '../CourseEditFrom';
 
-class EditLecture extends React.Component{
+class EditCourse extends React.Component{
     render(){
         return(
+            <Provider store={store}>
             <div id='edit-course'>
                 <AdminNavigation />
                 <div className="container">
-                <form action="" method="post">
-                    <div className="input-group">
-                        <label for="name">Name</label>
-                        <input type="text" name="name" id="name" />
-                    </div>
-                    <button type="submit" className="btn">Save Course</button>
-                    <input type="hidden" name="_token" value="{{ Session::token() }}" />
-                    <input type="hidden" name="course_id" value="{{$course->id}}" />
-                </form>
+                <CourseEditFrom/>
                 </div>
             </div>
+            </Provider>
         );
     }
 }
-export default EditLecture;
+export default EditCourse;

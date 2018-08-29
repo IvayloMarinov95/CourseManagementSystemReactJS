@@ -27,7 +27,7 @@ class CourseModal extends React.Component {
             <Form onSubmit={this.onSubmit}>
                 <FormGroup>
                     <Label for="course">Course name</Label>
-                    <Input type="text" name="name" id="course" onChange={this.onChange}/>
+                    <Input type="text" name="name" id="course" onChange={this.onChange} value={this.state.name}/>
                     <Button type="submit" className="btn">Create Course</Button>
                 </FormGroup>
             </Form>

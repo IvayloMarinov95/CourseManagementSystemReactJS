@@ -7,7 +7,7 @@ import '../form.css';
 class AdminNavigation extends React.Component{
     render() {
         return (
-            <header class="top-nav">
+            <header className="top-nav">
                 <nav>
                 <ul>
                     <li><NavLink to="/admin/index">Dashboard</NavLink></li>

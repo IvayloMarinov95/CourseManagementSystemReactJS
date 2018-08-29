@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_COURSES, ADD_COURSE, DELETE_COURSE, COURSES_LOADING } from './types';
+import { GET_COURSES, ADD_COURSE, UPDATE_COURSE, DELETE_COURSE, COURSES_LOADING, SINGLE_COURSE } from './types';
 
 export const getCourses = () => dispatch => {
     dispatch(setCoursesLoading());
@@ -8,6 +8,17 @@ export const getCourses = () => dispatch => {
         .then(res => 
             dispatch({
             type: GET_COURSES,
+            payload: res.data
+        })
+    )
+};
+
+export const getSingleCourse = (id) => dispatch => {
+    axios
+        .get(`/api/courses/${id}`)
+        .then(res => 
+        dispatch({
+            type: SINGLE_COURSE,
             payload: res.data
         })
     )
@@ -23,6 +34,17 @@ export const addCourse = course => dispatch => {
             })
         )
 };
+
+export const editCourse = (id, course) => dispatch => {
+    axios
+        .put(`/api/courses/${id}`, course)
+        .then(res => 
+            dispatch({
+                type: UPDATE_COURSE,
+                payload: res.data
+        })
+    )
+}
 
 export const deleteCourse = (id) => dispatch => {
     axios

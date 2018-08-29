@@ -19,7 +19,7 @@ import Lectures from './admin/system/lectures';
 import CreateLecture from './admin/system/create-lecture';
 import EditLecture from './admin/system/edit-lecture';
 import AdminCourses from './admin/system/courses';
-import EditCourses from './admin/system/edit-course';
+import EditCourse from './admin/system/edit-course';
 import AdminPosts from './admin/system/posts';
 import CreatePost from './admin/system/create-post';
 import EditPost from './admin/system/edit-post';
@@ -41,7 +41,7 @@ const app = (
     <Route path="/admin/lectures" component={Lectures}/>
     <Route path="/admin/posts" component={AdminPosts}/>
     <Route path="/admin/create-lecture" component={CreateLecture}/>
-    <Route path="/admin/edit-course" component={EditCourses}/>
+    <Route path="/admin/edit-course" component={EditCourse}/>
     <Route path="/admin/create-post" component={CreatePost}/>
     <Route path="/admin/edit-post" component={EditPost}/>
     <Route path="/admin/edit-lecture" component={EditLecture}/>

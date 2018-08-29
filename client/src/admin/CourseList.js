@@ -1,8 +1,9 @@
 import React from 'react';
-import { ListGroup, ListGroupItem, Button } from 'reactstrap';
+import { ListGroup, ListGroupItem, Button, Input } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getCourses, deleteCourse } from '../actions/courseActions'; 
+import { getCourses, getSingleCourse, deleteCourse } from '../actions/courseActions'; 
 
 
 
@@ -11,9 +12,15 @@ class CourseList extends React.Component{
         this.props.getCourses();
     }
 
+    OnEditClick = () => {
+        this.props.getSingleCourse();
+    }
+
     OnDeleteClick = (id) => {
         this.props.deleteCourse(id);    
     }
+
+    
 
     render(){
         const { courses } = this.props.course;
@@ -22,14 +29,15 @@ class CourseList extends React.Component{
                 {courses.map(({ _id, name }) => (
                      <ListGroupItem>
                     <article>
-                        <div class="category-info">
+                        <div className="category-info">
                             <h3>{name}</h3>
                         </div>
-                        <div class="edit">
+                        <div className="edit">
                             <nav>
                                 <ul>
-                                    <li class="category-edit"><input type="text"/></li>
-                                    <li><Button>Edit</Button></li>
+                                {/*  */}
+                                    <li className="category-edit"><Input type="text"/></li>
+                                    <Link to={`/admin/edit-course/${_id}`} ><Button onClick={this.OnEditClick.bind(this, _id)}>Edit</Button></Link>
                                     <li><Button className="danger" onClick={this.OnDeleteClick.bind(this, _id)}>Delete</Button></li>
                                 </ul>
                             </nav>
@@ -53,5 +61,5 @@ const mapStateToProps = (state) => ({
 
 export default connect(
     mapStateToProps,
-    { getCourses, deleteCourse }
-) (CourseList);
+    { getCourses, getSingleCourse, deleteCourse }
+)(CourseList);
