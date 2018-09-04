@@ -4,10 +4,10 @@ import AdminNavigation from '../components/AdminNavigation';
 import '../style.css';
 import '../modal.css';
 import '../admin.css';
-import CourseList from './CourseList';
 import { Provider } from 'react-redux';
 import store from '../store';
 import PostList from './PostList'
+import LectureList from './LectureList';
 
 
 class AdminIndex extends React.Component{
@@ -28,7 +28,7 @@ class AdminIndex extends React.Component{
                                 </nav>
                             </header>
                             <section>
-                            <CourseList />
+                            <LectureList />
                             </section>
                         </div>
                         <div className="card">

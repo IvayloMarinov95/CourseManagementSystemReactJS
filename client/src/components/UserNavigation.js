@@ -1,7 +1,18 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { logoutUser } from '../actions/userActions';
+
 
 class UserNavigation extends React.Component{
+    
+    onLogout(e) {
+        e.preventDefault();
+        this.props.logoutUser(this.props.history);
+    }
+
     render(){
         return(
             <nav className="navbar navbar-default">
@@ -24,7 +35,7 @@ class UserNavigation extends React.Component{
                         <li ><NavLink to="/homepage">Home</NavLink></li>
                         <li ><NavLink to="/courses">Courses</NavLink></li>
                         <li ><NavLink to="/user-contact">Contacts</NavLink></li>
-                        <li ><NavLink to="/logout">Logout</NavLink></li>
+                        <li ><a href="" onClick={this.onLogout.bind(this)}>Logout</a></li>
                     </ul>
                 </div>
                 </div>
@@ -33,4 +44,14 @@ class UserNavigation extends React.Component{
     }
 }
 
-export default UserNavigation;
+UserNavigation.propTypes = {
+    logoutUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired
+}
+
+const mapStateToProps = (state) => ({
+    auth: state.auth
+})
+
+
+export default connect(mapStateToProps, {logoutUser})(withRouter(UserNavigation));

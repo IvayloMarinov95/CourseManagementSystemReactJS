@@ -27,7 +27,7 @@ class CourseList extends React.Component{
         return(
            <ListGroup>
                 {courses.map(({ _id, name }) => (
-                     <ListGroupItem>
+                     <ListGroupItem key={_id}>
                     <article>
                         <div className="category-info">
                             <h3>{name}</h3>
@@ -37,7 +37,7 @@ class CourseList extends React.Component{
                                 <ul>
                                 {/*  */}
                                     <li className="category-edit"><Input type="text"/></li>
-                                    <Link to={`/admin/edit-course/${_id}`} ><Button onClick={this.OnEditClick.bind(this, _id)}>Edit</Button></Link>
+                                    <Link to={`/admin/edit-course/${_id}/${name}`} ><Button onClick={this.OnEditClick.bind(this, _id, name)}>Edit</Button></Link>
                                     <li><Button className="danger" onClick={this.OnDeleteClick.bind(this, _id)}>Delete</Button></li>
                                 </ul>
                             </nav>

@@ -40,7 +40,7 @@ router.put('/:id', (req, res) => {
         name:  req.body.name,
         body: req.body.body
     });
-    newPost.update().then(post => res.json(course))
+    newPost.update().then(post => res.json(post))
 });
 
 // @route DELETE api/posts/:id

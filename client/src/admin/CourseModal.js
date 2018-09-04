@@ -12,7 +12,7 @@ class CourseModal extends React.Component {
         this.setState( { [e.target.name]: e.target.value });
     }
 
-    onSubmit = e => {
+    onSubmit = (e) => {
         e.preventDefault();
 
         const newCourse = {
@@ -27,7 +27,7 @@ class CourseModal extends React.Component {
             <Form onSubmit={this.onSubmit}>
                 <FormGroup>
                     <Label for="course">Course name</Label>
-                    <Input type="text" name="name" id="course" onChange={this.onChange} value={this.state.name}/>
+                    <Input type="text" name="name" style={{width:'250px'}} id="course" onChange={this.onChange} value={this.state.name}/>
                     <Button type="submit" className="btn">Create Course</Button>
                 </FormGroup>
             </Form>

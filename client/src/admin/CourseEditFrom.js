@@ -8,11 +8,16 @@ import PropTypes from 'prop-types';
 
 
 class CourseEditForm extends React.Component{
+    
     state = {
         name: ''
     }
 
-
+    componentWillMount(){
+        const cid = this.props.location.pathname.split("/")[3];
+        const cname = this.props.location.pathname.split("/")[4];
+        this.setState({id: cid, name: cname });
+    }
 
     onChange = (e) => {
         this.setState( { [e.target.name]: e.target.value } );
@@ -32,13 +37,13 @@ class CourseEditForm extends React.Component{
     }
 
     render(){
-        const id = this.props.location.pathname.split("/")[3]
-        this.state.id = id;
+        // const id = this.props.location.pathname.split("/")[3]
+        // this.state.id = id;
         return(
             <Form onSubmit={this.onSubmit}>
                 <FormGroup>
                     <Label for="course">Course name</Label>
-                    <Input type="text" name="name" id="course" onChange={this.onChange} value={this.state.name} />
+                    <Input type="text" name="name" id="course" style={{width:'350px'}} onChange={this.onChange} value={this.state.name} />
                     </FormGroup>
                     <Button type="submit" className="btn">Save Course</Button>
             </Form>

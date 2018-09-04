@@ -33,7 +33,7 @@ class PostForm extends React.Component {
             <Form onSubmit={this.onSubmit}>
                 <FormGroup>
                     <Label for="post">Name</Label>
-                    <Input type="text" name="name" id="post" onChange={this.onChange}/>
+                    <Input type="text" name="name" id="post" style={{width:'250px'}} onChange={this.onChange}/>
                     <Label for="body">Body</Label>
                     <Input type="textarea" name="body" id="body" rows="12" onChange={this.onChange}/>
                     <br/>

@@ -3,6 +3,7 @@ import { ListGroup, ListGroupItem, Button } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getPosts, deletePost } from '../actions/postActions'; 
+import { Link } from 'react-router-dom';
 
 
 
@@ -26,11 +27,11 @@ class PostList extends React.Component{
                             <h3>{name}</h3>
                             <div>{body}</div>
                         </div>
-                        <div class="edit">
+                        <div className="edit">
                             <nav>
                                 <ul>
                                     <li className="category-edit"><input type="text"/></li>
-                                    <li><Button>Edit</Button></li>
+                                    <li><Link to={`/admin/edit-post/${_id}/${name}`}><Button>Edit</Button></Link></li>
                                     <li><Button className="danger" onClick={this.OnDeleteClick.bind(this, _id)}>Delete</Button></li>
                                 </ul>
                             </nav>
@@ -55,4 +56,4 @@ const mapStateToProps = (state) => ({
 export default connect(
     mapStateToProps,
     { getPosts, deletePost }
-) (PostList);
+)(PostList);

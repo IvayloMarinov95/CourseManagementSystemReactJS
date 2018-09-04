@@ -1,6 +1,7 @@
-import { GET_USERS, ADD_USER, DELETE_USER } from '../actions/types';
+import { GET_USERS, ADD_USER, DELETE_USER, SET_CURRENT_USER } from '../actions/types';
 
 const initialState = {
+    isAuthenticated: false,
     users: []
 }
 
@@ -21,6 +22,12 @@ export default function(state = initialState, action){
                 ...state,
                 users: state.users.filter(user => user._id !== action.payload)
             };
+        case SET_CURRENT_USER:
+        return{
+            ...state,
+            isAuthenticated: action.payload,
+            users: action.payload
+        }
         default:
         return state;
     }

@@ -1,5 +1,9 @@
 import axios from 'axios';
-import { GET_USERS, ADD_USER, DELETE_USER } from './types';
+import { GET_USERS, ADD_USER, DELETE_USER, SET_CURRENT_USER } from './types';
+import setAuthToken from '../setAuthToken';
+import jwt_decode from 'jwt-decode';
+
+
 
 
 export const getUsers = () => dispatch => {
@@ -27,9 +31,36 @@ export const addUser = user => dispatch => {
 export const deleteUser = (id) => dispatch => {
     axios
     .delete(`/api/users/${id}`)
-    .then(res => dispatch({
-        type: DELETE_USER,
-        payload: id
-    })
+        .then(res => dispatch({
+            type: DELETE_USER,
+            payload: id
+        })
     )
 };
+
+export const loginUser = (user) => dispatch => {
+    axios
+    .post('/api/users/login', user)
+        .then(res => {
+            const { token } = res.data;
+            localStorage.setItem('jwtToken', token);
+            setAuthToken(token);
+            const decoded = jwt_decode(token);
+            dispatch(setCurrentUser(decoded));
+            }
+        )
+};
+
+export const setCurrentUser = decoded => {
+    return {
+        type: SET_CURRENT_USER,
+        payload: decoded
+    }
+}
+
+export const logoutUser = (history) => dispatch => {
+    localStorage.removeItem('jwtToken');
+    setAuthToken(false);
+    dispatch(setCurrentUser({}));
+    history.push('/');
+}

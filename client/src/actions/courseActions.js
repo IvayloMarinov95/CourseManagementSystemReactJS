@@ -13,9 +13,9 @@ export const getCourses = () => dispatch => {
     )
 };
 
-export const getSingleCourse = (id) => dispatch => {
+export const getSingleCourse = (id, name, course) => dispatch => {
     axios
-        .get(`/api/courses/${id}`)
+        .get(`/api/courses/${id}/${name}`, course)
         .then(res => 
         dispatch({
             type: SINGLE_COURSE,

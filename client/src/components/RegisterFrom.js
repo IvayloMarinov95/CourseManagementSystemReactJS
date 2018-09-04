@@ -41,10 +41,10 @@ class RegisterForm extends React.Component{
                     <Input onChange={this.onChange} type="text" className="form-control" style={{width:'200'}} id='email' name='email' placeholder="Email" value={this.state.email}/>
                 </FormGroup>
                 <FormGroup>
-                    <Input onChange={this.onChange} type="text" className="form-control" style={{width:'200'}} id='password' name='password' placeholder="Password" value={this.state.password}/>
+                    <Input onChange={this.onChange} type="password" className="form-control" style={{width:'200'}} id='password' name='password' placeholder="Password" value={this.state.password}/>
                 </FormGroup>
                 <FormGroup>
-                    <Input onChange={this.onChange} type="text" className="form-control" style={{width:'200'}} name='password_confirmation' placeholder="Confirm Password" value={this.state.password}/>
+                    <Input onChange={this.onChange} type="password" className="form-control" style={{width:'200'}} name='password_confirmation' placeholder="Confirm Password" value={this.state.password}/>
                 </FormGroup>
                     <Button type="submit" id="btn" className="btn btn-primary pull-right">Register</Button>
             </Form>
