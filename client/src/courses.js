@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import Sliders from './components/Sliders';
 import { Provider } from 'react-redux';
 import store from './store';
+import UserCourseList from './UserCourseList';
 
 class Courses extends React.Component{
     render(){
@@ -22,9 +23,7 @@ class Courses extends React.Component{
             <div>
                 <div className="panel panel-primary panel-holder">
                     <div className="panel-heading">Courses</div>
-                    {/* @foreach($courses as $course)
-                    <div class="panel-body"><a href="{{route('course-single', ['id' => $course->id])}}">{{$course->name}}</a></div>
-                    @endforeach */}
+                   <UserCourseList />
                 </div>
             </div>
             </body>
@@ -36,4 +35,7 @@ class Courses extends React.Component{
         );
     }
 }
+
+
+
 export default Courses;

@@ -35,7 +35,6 @@ class CourseList extends React.Component{
                         <div className="edit">
                             <nav>
                                 <ul>
-                                {/*  */}
                                     <li className="category-edit"><Input type="text"/></li>
                                     <Link to={`/admin/edit-course/${_id}/${name}`} ><Button onClick={this.OnEditClick.bind(this, _id, name)}>Edit</Button></Link>
                                     <li><Button className="danger" onClick={this.OnDeleteClick.bind(this, _id)}>Delete</Button></li>

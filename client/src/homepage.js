@@ -8,6 +8,8 @@ import Footer from './components/Footer';
 import Sliders from './components/Sliders';
 import { Provider } from 'react-redux';
 import store from './store';
+import HomePageCourseList from './HomePageCourseList';
+import HomePagePostList from './HomePagePostList';
 
 class HomePage extends React.Component{
     render(){
@@ -29,15 +31,7 @@ class HomePage extends React.Component{
                     </header>
                     <section>
                         <ul>
-                            {/* @foreach($courses as $course)
-                                <li>
-                                    <article>
-                                        <div class="post-info">
-                                            <h3><b><a href="{{route('course-single', ['id' => $course->id])}}">{{ $course->name }}</a></b></h3>
-                                        </div>
-                                    </article>
-                                </li>
-                            @endforeach */}
+                            <HomePageCourseList />
                         </ul> 
                     </section>
                 </div>
@@ -51,26 +45,7 @@ class HomePage extends React.Component{
                     </header>
                     <section>
                         <ul>
-                            {/* @if(count($posts)==0)
-                                <li>No Messages</li>
-                            @endif
-                            @foreach($posts as $post)
-                                <li>
-                                    <article data-message="{{ $post->body }}" data-id="{{ $post->id }}">
-                                        <div class="message-info">
-                                            <h3><b>{{ $post->name }}</b></h3>
-                                            <div>{{$post->body}}</div>
-                                            <br>
-                                            
-                                        </div>
-                                        <div class="edit">
-                                            <ul>
-                                                <span class="info">{{ $post->created_at }}</span>
-                                            </ul>
-                                        </div>
-                                    </article>
-                                </li>
-                            @endforeach */}
+                            <HomePagePostList />
                         </ul>
                     </section>
                 </div>

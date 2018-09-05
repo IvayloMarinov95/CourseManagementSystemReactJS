@@ -3,10 +3,14 @@ import './style.css';
 import UserNavigation from './components/UserNavigation';
 import Footer from './components/Footer';
 import Sliders from './components/Sliders';
+import { Provider } from 'react-redux';
+import store from './store';
+import UserPostList from './UserPostList';
 
 class Posts extends React.Component{
     render(){
         return(
+            <Provider store={store}>
             <div id= 'posts'>
             <header>
                 <UserNavigation />
@@ -16,20 +20,14 @@ class Posts extends React.Component{
             <div>
                 <div class="panel panel-primary panel-holder">
                     <div class="panel-heading">Публикации</div>
-                    {/* @if(count($posts)==0)
-                        <h3>&nbsp;No Messages</h3>
-                    @endif
-                    @foreach($posts as $post)
-                    <h3>&nbsp;<b>{{$post->name}}</b></h3>
-                    <div class="panel-body">{{$post->body}} <br><br><span class="info">{{$post->created_at}}</span></div>
-                    
-                    @endforeach */}
+                    <UserPostList />
                 </div>
             </div>
             <footer>
                 <Footer/>
             </footer>
             </div>
+            </Provider>
         );
     }
 }
