@@ -17,7 +17,7 @@ class UserCourseList extends React.Component {
             <ListGroup>
                 {courses.map(({ _id, name }) => (
                     <ListGroupItem key={_id}>
-                     <div class="panel-body">{name}</div>
+                     <div className="panel-body">{name}</div>
                      </ListGroupItem>
                 ))}
             </ListGroup>

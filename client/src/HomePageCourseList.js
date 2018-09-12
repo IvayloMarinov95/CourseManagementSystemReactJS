@@ -18,7 +18,7 @@ class HomePageCourseList extends React.Component {
                 <article>
                 {courses.map(({ _id, name }) => (
                     <ListGroupItem key={_id}>
-                     <div class="post-info">
+                     <div className="post-info">
                      <h3><b>{name}</b></h3>
                      </div>
                      </ListGroupItem>

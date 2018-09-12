@@ -3,6 +3,9 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { connect } from 'react-redux';
 import { addLecture } from '../actions/lectureActions';
 import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import LectureFormCourseList from './LectureFormCourseList';
+
 
 class LectureForm extends React.Component {
     state = {
@@ -10,8 +13,6 @@ class LectureForm extends React.Component {
         course: '',
         myFile: '' 
     }
-
-
     onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
     }
@@ -30,24 +31,19 @@ class LectureForm extends React.Component {
     }
 
     render(){
-        // const { courses } = this.props.course;
         return(
             <Form onSubmit={this.onSubmit} encType="multipart/form-data">
                 <FormGroup>
-                    <Label htmlFor="name">Course name</Label>
+                    <Label htmlFor="name">Lecture name</Label>
                     <Input type="text" name="name" style={{width:'250px'}} onChange={this.onChange} value={this.state.value} />
                 </FormGroup>
                 <FormGroup>
                     <Label for="courses">Course</Label>
-                    <Input type="select" name="course" style={{width:'250px'}}>
-                    {/* {courses.map(({_id, name}) =>(
-                        <option>{name}</option>
-                    ))} */}
-                    </Input>
+                    <LectureFormCourseList/>
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="file">Browse:</Label>
-                    <Input type="file" name="myFile" />
+                    <Input type="file" name="myFile"/>
                 </FormGroup>
                 <Button type="submit" className="btn">Create Lecture</Button>
             </Form>
@@ -56,7 +52,8 @@ class LectureForm extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    lecture: state.lecture
+    lecture: state.lecture,
+    getCourses: PropTypes.func.isRequired,
 });
 
 export default connect(mapStateToProps, { addLecture })(withRouter(LectureForm));
