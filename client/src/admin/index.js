@@ -16,14 +16,13 @@ class AdminIndex extends React.Component{
             <Provider store={store}>
             <div id= "admin-index">
                     <AdminNavigation />
-                <body>
                     <div>
                         <div className="card">
                             <header>
                                 <nav>
                                     <ul>
-                                        <li><NavLink to="/admin/create-lecture"><a href="" className="btn">New Lecture</a></NavLink></li>
-                                        <li><NavLink to="/admin/lectures"><a href="" className="btn">Show all Lectures</a></NavLink></li>
+                                        <li><NavLink to="/admin/create-lecture" className="btn">New Lecture></NavLink></li>
+                                        <li><NavLink to="/admin/lectures" className="btn">Show all Lectures</NavLink></li>
                                     </ul>
                                 </nav>
                             </header>
@@ -35,7 +34,7 @@ class AdminIndex extends React.Component{
                             <header>
                                 <nav>
                                     <ul>
-                                        <li><NavLink to="/admin/posts"><a href="" className="btn">Show all Posts</a></NavLink></li>
+                                        <li><NavLink to="/admin/posts" className="btn">Show all Posts</NavLink></li>
                                     </ul>
                                 </nav>
                             </header>
@@ -47,7 +46,6 @@ class AdminIndex extends React.Component{
                     <div className="modal" id="contact-message-info">
                         <button className="btn" id="modal-close">Close</button>
                     </div>
-                </body>
             </div>
             </Provider>
         );

@@ -24,10 +24,10 @@ class Home extends Component{
                 </header>  
                 <div className="content">
                     <div className="wrap">
-                        <div col-md-5 img-thumbnail styles={{padding:'0'}}>
+                        <div style={{padding:'0'}}>
                             <div id="feedback">
                                 <div className="container">
-                                    <div className="col-md-5">
+                                    <div>
                                         <div className="form-area">  
                                             <LogInForm/>
                                             </div>

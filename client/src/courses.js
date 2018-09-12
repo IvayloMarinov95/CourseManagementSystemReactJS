@@ -18,7 +18,6 @@ class Courses extends React.Component{
                 <UserNavigation />
                 <Sliders />
             </header>
-            <body>
             <br/>
             <div>
                 <div className="panel panel-primary panel-holder">
@@ -26,7 +25,6 @@ class Courses extends React.Component{
                    <UserCourseList />
                 </div>
             </div>
-            </body>
             <footer>
                 <Footer />
             </footer>

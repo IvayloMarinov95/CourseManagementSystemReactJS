@@ -18,7 +18,7 @@ class HomePagePostList extends React.Component {
                 <article>
                 {posts.map(({ _id, name, body }) => (
                     <ListGroupItem key={_id}>
-                     <div class="message-info">
+                     <div className="message-info">
                      <h3><b>{name}</b></h3>
                      <div>{body}</div>
                      </div>

@@ -24,7 +24,11 @@ class LectureFormCourseList extends React.Component{
 LectureFormCourseList.propTypes = {
     getCourses: PropTypes.func.isRequired,
     course: PropTypes.object.isRequired
+<<<<<<< HEAD
  }
+=======
+}
+>>>>>>> 79189843419d2f7cdd8655e0f5cc306f7228ce43
 
 const mapStateToProps = (state) => ({
     course: state.course

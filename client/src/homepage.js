@@ -20,12 +20,11 @@ class HomePage extends React.Component{
                 <UserNavigation />
                 <Sliders />
             </header>
-            <body>
-                <div className="card card-holder">
+            	<div className="card card-holder">
                     <header>
                         <nav>
                             <ul>
-                                <li><NavLink to="/courses"><a href="" className="btn">See all courses</a></NavLink></li>
+                                <li><NavLink to="/courses" className="btn">See all courses</NavLink></li>
                             </ul>
                         </nav>
                     </header>
@@ -39,7 +38,7 @@ class HomePage extends React.Component{
                     <header>
                         <nav>
                             <ul>
-                                <li><NavLink to="/posts"><a href="" className="btn">See all posts</a></NavLink></li>
+                                <li><NavLink to="/posts" className="btn">See all posts</NavLink></li>
                             </ul>
                         </nav>
                     </header>
@@ -53,7 +52,6 @@ class HomePage extends React.Component{
                 <div className="modal" id="contact-message-info">
                     <button className="btn" id="modal-close">Close</button>
                 </div>
-            </body>
             <footer>
                 <Footer />
             </footer>
