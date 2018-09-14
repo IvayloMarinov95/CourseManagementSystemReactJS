@@ -8,6 +8,7 @@ const posts = require('./routes/api/posts');
 const lectures = require('./routes/api/lectures');
 
 
+
 const app = express();
 
 //bodyparser Middleware

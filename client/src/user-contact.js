@@ -26,7 +26,7 @@ class UserContact extends React.Component{
                         <div className="one">
                         <div styles={{padding: '0'}}>
                             <div id="feedback"> <div className="container">
-                                <div>
+                                <div className="col-md-5">
                                     <div className="form-area">  
                                         <form action="{{route('message-sent')}}" method="post">
                                         <br styles={{clear: 'both'}}/>

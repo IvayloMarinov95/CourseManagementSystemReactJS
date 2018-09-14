@@ -27,7 +27,7 @@ class Home extends Component{
                         <div style={{padding:'0'}}>
                             <div id="feedback">
                                 <div className="container">
-                                    <div>
+                        	<div className="col-md-5">
                                         <div className="form-area">  
                                             <LogInForm/>
                                             </div>

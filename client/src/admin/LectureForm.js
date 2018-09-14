@@ -1,10 +1,8 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { connect } from 'react-redux';
-import { getCourses } from '../actions/courseActions';
 import { addLecture } from '../actions/lectureActions';
 import { withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import LectureFormCourseList from './LectureFormCourseList';
 
 
@@ -14,14 +12,6 @@ class LectureForm extends React.Component {
         course: '',
         myFile: '' 
     }
-<<<<<<< HEAD
-
-    componentDidMount(){
-        this.props.getCourses();
-    }
-
-=======
->>>>>>> 79189843419d2f7cdd8655e0f5cc306f7228ce43
     onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
     }
@@ -47,15 +37,11 @@ class LectureForm extends React.Component {
                     <Input type="text" name="name" style={{width:'250px'}} onChange={this.onChange} value={this.state.value} />
                 </FormGroup>
                 <FormGroup>
-<<<<<<< HEAD
-                    <Label hmlFor="courses">Course</Label>
-=======
                     <Label for="courses">Course</Label>
->>>>>>> 79189843419d2f7cdd8655e0f5cc306f7228ce43
                     <LectureFormCourseList/>
                 </FormGroup>
                 <FormGroup>
-                    <Label htmlFor="file">Browse:</Label>
+                    <Label htmlFor="myFile">Browse:</Label>
                     <Input type="file" name="myFile"/>
                 </FormGroup>
                 <Button type="submit" className="btn">Create Lecture</Button>
@@ -66,7 +52,6 @@ class LectureForm extends React.Component {
 
 const mapStateToProps = (state) => ({
     lecture: state.lecture,
-    getCourses: PropTypes.func.isRequired,
 });
 
-export default connect(mapStateToProps, { addLecture})(withRouter(LectureForm));
+export default connect(mapStateToProps, { addLecture })(withRouter(LectureForm));
