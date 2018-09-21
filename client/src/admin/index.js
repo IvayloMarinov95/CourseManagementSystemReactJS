@@ -21,7 +21,7 @@ class AdminIndex extends React.Component{
                             <header>
                                 <nav>
                                     <ul>
-                                        <li><NavLink to="/admin/create-lecture" className="btn">New Lecture></NavLink></li>
+                                        <li><NavLink to="/admin/create-lecture" className="btn">New Lecture</NavLink></li>
                                         <li><NavLink to="/admin/lectures" className="btn">Show all Lectures</NavLink></li>
                                     </ul>
                                 </nav>

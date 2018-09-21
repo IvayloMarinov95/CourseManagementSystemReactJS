@@ -22,9 +22,9 @@ class Navigation extends React.Component {
                     {/* <!-- Collect the nav links, forms, and other content for toggling --> */}
                     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul className="nav navbar-nav navbar-right">
-                            <li><NavLink to="/">Home</NavLink></li>
-                            <li><NavLink to="/register" >Register</NavLink></li>
-                            <li><NavLink to="/contact">Contacts</NavLink></li>
+                            <li className={window.location.pathname === '/' ? "active" : ""}><NavLink   to="/">Home</NavLink></li>
+                            <li className={window.location.pathname === '/register' ? "active" : ""}><NavLink to="/register">Register</NavLink></li>
+                            <li className={window.location.pathname === '/contact' ? "active" : ""}><NavLink activeClassName={"active"} to="/contact" >Contacts</NavLink></li>
                         </ul>
                        
                     </div>
@@ -35,5 +35,6 @@ class Navigation extends React.Component {
     }
     
 }
+
 
 export default Navigation;

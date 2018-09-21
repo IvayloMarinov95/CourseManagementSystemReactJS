@@ -32,9 +32,9 @@ class UserNavigation extends React.Component{
                     {/* <!-- Collect the nav links, forms, and other content for toggling --> */}
                 <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul className="nav navbar-nav navbar-right">
-                        <li ><NavLink to="/homepage">Home</NavLink></li>
-                        <li ><NavLink to="/courses">Courses</NavLink></li>
-                        <li ><NavLink to="/user-contact">Contacts</NavLink></li>
+                        <li className={window.location.pathname === '/homepage' ? "active" : ""}><NavLink to="/homepage">Home</NavLink></li>
+                        <li className={window.location.pathname === '/courses' ? "active" : ""}><NavLink to="/courses">Courses</NavLink></li>
+                        <li className={window.location.pathname === '/user-contact' ? "active" : ""}><NavLink to="/user-contact">Contacts</NavLink></li>
                         <li ><a href="" onClick={this.onLogout.bind(this)}>Logout</a></li>
                     </ul>
                 </div>

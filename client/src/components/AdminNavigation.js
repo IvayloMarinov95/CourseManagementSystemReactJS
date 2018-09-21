@@ -20,10 +20,10 @@ class AdminNavigation extends React.Component{
             <header className="top-nav">
                 <nav>
                 <ul>
-                    <li><NavLink to="/admin/index">Dashboard</NavLink></li>
-                    <li><NavLink to="/admin/lectures">Lectures</NavLink></li>
-                    <li><NavLink to="/admin/courses">Courses</NavLink></li>
-                    <li><NavLink to="/admin/posts">Posts</NavLink></li>
+                    <li className={window.location.pathname === '/admin/index' ? "active" : ""}><NavLink to="/admin/index">Dashboard</NavLink></li>
+                    <li className={window.location.pathname === '/admin/lectures' ? "active" : ""}><NavLink to="/admin/lectures">Lectures</NavLink></li>
+                    <li className={window.location.pathname === '/admin/courses' ? "active" : ""}><NavLink to="/admin/courses">Courses</NavLink></li>
+                    <li className={window.location.pathname === '/admin/posts' ? "active" : ""}><NavLink to="/admin/posts">Posts</NavLink></li>
                     <li><a href="" onClick={this.onLogout.bind(this)}>Logout</a></li>
                 </ul>
             </nav>
