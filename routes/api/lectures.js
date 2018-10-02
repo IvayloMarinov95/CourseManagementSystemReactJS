@@ -4,13 +4,12 @@ const multer = require('multer');
 const fs = require('fs');
 
 
-
 const storage = multer.diskStorage({
     destination: function(req, file, cb){
         cb(null, './uploads/');
     },
     filename: function(req, file, cb){
-        cb(null, file.originalname)
+        cb(null, file.fieldname + "_" + Date.now() + "_" + file.originalname );
     }
 });
 
@@ -37,13 +36,13 @@ router.get('/:id', (req, res) => {
 // @route POST api/lectures
 //@desc Create a Lecture 
 //@access Public
-router.post('/', upload.single('myFile'),(req, res) => {
+router.post('/', upload.single('myFile'), (req, res) => {
     const lecture = new Lecture({
         name: req.body.name,
         course: req.body.course,
         myFile: req.file.path
     });
-    lecture.save().then(lecture, courses => res.json(lecture, courses));
+    lecture.save().then(lecture => res.json(lecture));
 });
 
 router.put('/:id', (req, res) => {

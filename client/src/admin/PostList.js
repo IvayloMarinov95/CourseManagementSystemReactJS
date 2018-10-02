@@ -18,10 +18,11 @@ class PostList extends React.Component{
 
     render(){
         const { posts } = this.props.post;
+        console.log(posts);
         return(
            <ListGroup>
-                {posts.map(({ _id, name, body }) => (
-                     <ListGroupItem key={_id}>
+                {posts.map(({ _id, name, body }, index) => (
+                     <ListGroupItem key={index}>
                     <article>
                         <div className="category-info">
                             <h3>{name}</h3>
@@ -31,7 +32,7 @@ class PostList extends React.Component{
                             <nav>
                                 <ul>
                                     <li className="category-edit"><input type="text"/></li>
-                                    <li><Link to={`/admin/edit-post/${_id}/${name}`}><Button>Edit</Button></Link></li>
+                                    <li><Link to={`/admin/edit-post/${index}/${_id}`}><Button>Edit</Button></Link></li>
                                     <li><Button className="danger" onClick={this.OnDeleteClick.bind(this, _id)}>Delete</Button></li>
                                 </ul>
                             </nav>

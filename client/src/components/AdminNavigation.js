@@ -5,7 +5,6 @@ import '../admin.css';
 import '../form.css';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import { logoutUser } from '../actions/userActions';
 
 class AdminNavigation extends React.Component{
@@ -32,10 +31,6 @@ class AdminNavigation extends React.Component{
     }
 }
 
-AdminNavigation.propTypes = {
-    logoutUser: PropTypes.func.isRequired,
-    auth: PropTypes.object.isRequired
-}
 
 const mapStateToProps = (state) => ({
     auth: state.auth

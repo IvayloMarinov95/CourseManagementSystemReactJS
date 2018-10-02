@@ -14,8 +14,11 @@ class CourseEditForm extends React.Component{
     }
 
     componentWillMount(){
-        const cid = this.props.location.pathname.split("/")[3];
-        const cname = this.props.location.pathname.split("/")[4];
+        const params = this.props;
+        const index = this.props.location.pathname.split("/")[3];
+        const course = params.course.courses[index];
+        const cid = course._id;
+        const cname = course.name;
         this.setState({id: cid, name: cname });
     }
 

@@ -5,6 +5,11 @@ import { connect } from 'react-redux';
 import { getCourses } from '../actions/courseActions';
 
 class LectureFormCourseList extends React.Component{
+
+    onChange = (e) => {
+        this.setState({ [e.target.name]: e.target.value });
+        console.log(e.target.value);
+    }
     componentDidMount(){
         this.props.getCourses();
     }
@@ -12,9 +17,9 @@ class LectureFormCourseList extends React.Component{
     render(){
         const { courses } = this.props.course;
         return(
-            <Input type="select" name="course" style={{width:'250px'}}>
+            <Input type="select" name="course" style={{width:'250px'}} onChange={this.onChange} >
                 {courses.map(({_id, name}) =>(
-                    <option key={_id}>{name}</option>
+                    <option key={_id} >{name}</option>
                 ))}
             </Input>        
         );

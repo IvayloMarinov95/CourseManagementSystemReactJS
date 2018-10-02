@@ -12,10 +12,6 @@ class CourseList extends React.Component{
         this.props.getCourses();
     }
 
-    OnEditClick = () => {
-        this.props.getSingleCourse();
-    }
-
     OnDeleteClick = (id) => {
         this.props.deleteCourse(id);    
     }
@@ -26,8 +22,8 @@ class CourseList extends React.Component{
         const { courses } = this.props.course;
         return(
            <ListGroup>
-                {courses.map(({ _id, name }) => (
-                     <ListGroupItem key={_id}>
+                {courses.map(({ _id, name }, index) => (
+                     <ListGroupItem key={index}>
                     <article>
                         <div className="category-info">
                             <h3>{name}</h3>
@@ -36,7 +32,7 @@ class CourseList extends React.Component{
                             <nav>
                                 <ul>
                                     <li className="category-edit"><Input type="text"/></li>
-                                    <Link to={`/admin/edit-course/${_id}/${name}`} ><Button onClick={this.OnEditClick.bind(this, _id, name)}>Edit</Button></Link>
+                                    <Link to={`/admin/edit-course/${index}/${_id}`} ><Button>Edit</Button></Link>
                                     <li><Button className="danger" onClick={this.OnDeleteClick.bind(this, _id)}>Delete</Button></li>
                                 </ul>
                             </nav>

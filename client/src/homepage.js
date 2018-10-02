@@ -10,8 +10,17 @@ import { Provider } from 'react-redux';
 import store from './store';
 import HomePageCourseList from './HomePageCourseList';
 import HomePagePostList from './HomePagePostList';
+// import { getJwt } from './jwt';
+
 
 class HomePage extends React.Component{
+
+    // componentDidMount(){
+    //     const jwt = getJwt("jwtToken");
+    //     if(!jwt) {
+    //         this.props.history.push('/');
+    //     }
+    // }
     render(){
         return(
             <Provider store={store}>

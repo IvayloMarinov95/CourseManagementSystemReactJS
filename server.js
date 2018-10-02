@@ -11,6 +11,7 @@ const lectures = require('./routes/api/lectures');
 
 const app = express();
 
+
 //bodyparser Middleware
 app.use(bodyParser.json());
 
@@ -26,6 +27,8 @@ mongoose
     .connect("mongodb://localhost:27017/cms")
     .then(() => console.log('MongoDB Connected...'))
     .catch(err => console.log(err));
+
+app.use('/uploads', express.static('uploads'));
     
 // Use Routes
 app.use('/api/users', users);

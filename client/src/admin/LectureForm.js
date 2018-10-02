@@ -12,8 +12,11 @@ class LectureForm extends React.Component {
         course: '',
         myFile: '' 
     }
+
+  
     onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
+        console.log(e.target.value);
     }
 
     onSubmit = (e) => {
@@ -22,7 +25,7 @@ class LectureForm extends React.Component {
         const newLecture = {
             name: this.state.name,
             course: this.state.course,
-            myFile: this.state.myFile
+            myFile: this.state.recfile
         }
 
         this.props.addLecture(newLecture);
@@ -31,18 +34,18 @@ class LectureForm extends React.Component {
 
     render(){
         return(
-            <Form onSubmit={this.onSubmit} encType="multipart/form-data">
+            <Form onSubmit={this.onSubmit} encType="multipart/form-data" >
                 <FormGroup>
                     <Label htmlFor="name">Lecture name</Label>
                     <Input type="text" name="name" style={{width:'250px'}} onChange={this.onChange} value={this.state.value} />
                 </FormGroup>
                 <FormGroup>
-                    <Label for="courses">Course</Label>
+                    <Label for="course">Course</Label>
                     <LectureFormCourseList/>
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="myFile">Browse:</Label>
-                    <Input type="file" name="myFile"/>
+                    <Input type="file" name="myFile" onChange={this.onChange}/>
                 </FormGroup>
                 <Button type="submit" className="btn">Create Lecture</Button>
             </Form>
@@ -51,7 +54,7 @@ class LectureForm extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    lecture: state.lecture,
+    lecture: state.lecture
 });
 
 export default connect(mapStateToProps, { addLecture })(withRouter(LectureForm));

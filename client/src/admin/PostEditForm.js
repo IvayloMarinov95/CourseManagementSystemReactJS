@@ -3,19 +3,20 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { connect } from 'react-redux';
 import { getSinglePost, editPost } from '../actions/postActions';
 import { withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
 class PostEditForm extends React.Component{
 
-    state = {
-        name: '',
-        body: ''
-    }
-
     componentWillMount(){
-        const pid = this.props.location.pathname.split("/")[3];
-        const pname = this.props.location.pathname.split("/")[4];
-        this.setState({id: pid, name: pname})
+        // const proba = this.props.getSinglePost();
+        // console.log(proba);
+        const params = this.props;
+        const index = this.props.location.pathname.split("/")[3];
+        const post = params.post.posts[index];
+        console.log(post);
+        const pid = post._id;
+        const pname = post.name;
+        const pbody = post.body;
+        this.setState({id: pid, name: pname, body: pbody})
     }
 
     onChange = (e) => {
@@ -38,6 +39,7 @@ class PostEditForm extends React.Component{
     }
 
     render(){
+        console.log(this.props)
         return(
             <Form onSubmit={this.onSubmit}>
                 <FormGroup>
@@ -46,17 +48,12 @@ class PostEditForm extends React.Component{
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="post-body">Post body</Label>
-                    <Input type="textarea" name="body" rows = "12" onChange={this.onChange} />
+                    <Input type="textarea" name="body" rows = "12" onChange={this.onChange} value={this.state.body}/>
                 </FormGroup>
                 <Button type="submit" className="btn">Save Post</Button>
             </Form>
         )
     }
-}
-
-PostEditForm.protoTypes = {
-    getSinglePost: PropTypes.func.isRequired,
-    post: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({

@@ -10,10 +10,6 @@ class LectureList extends React.Component{
         this.props.getLectures();
     }
 
-    onEditClick = () => {
-        this.props.getSingleLecture();
-    }
-
     onDeleteClick = (id) => {
         this.props.deleteLecture(id);
     }
@@ -22,8 +18,8 @@ class LectureList extends React.Component{
         const { lectures } = this.props.lecture;
         return(
             <ListGroup>
-                {lectures.map(({ _id, name, myFile, date }) => (
-                    <ListGroupItem key={_id}>
+                {lectures.map(({ _id, name, myFile, date }, index) => (
+                    <ListGroupItem key={index}>
                         <article>
                             <div className="post-info">
                                 <h3>{name}</h3>
@@ -32,7 +28,7 @@ class LectureList extends React.Component{
                             <div className="edit">
                                 <nav>
                                     <ul>
-                                        <li><Link to={`/admin/edit-lecture/${_id}/${name}`}><Button onClick={this.onEditClick.bind(this, _id)}>Edit</Button></Link></li>
+                                        <li><Link to={`/admin/edit-lecture/${index}/${_id}`}><Button>Edit</Button></Link></li>
                                         <li><Button className="danger" onClick={this.onDeleteClick.bind(this, _id)}>Delete</Button></li>
                                     </ul>
                                 </nav>

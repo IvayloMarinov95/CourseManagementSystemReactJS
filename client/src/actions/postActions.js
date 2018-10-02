@@ -13,9 +13,9 @@ export const getPosts = () => dispatch => {
     )
 };
 
-export const getSinglePost = (id, name, post) => dispatch => {
+export const getSinglePost = (id,post) => dispatch => {
     axios
-        .get(`/api/posts/${id}/${name}`, post)
+        .get(`/api/posts/${id}`, post)
         .then(res => 
         dispatch({
             type: SINGLE_POST,

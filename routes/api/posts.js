@@ -16,8 +16,8 @@ router.get('/', (req, res) => {
 // @route GET api/posts
 //@desc get Single Post
 //@access Public
-router.get('/:id', (req, res) => {
-    Post.findById(req.params.id)
+router.get('/:_id', (req, res) => {
+    Post.findById(req.params._id)
     .then(post => res.json(post))
 });
 

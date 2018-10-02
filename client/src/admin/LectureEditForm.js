@@ -11,8 +11,11 @@ class LectureEditForm extends React.Component{
     }
 
     componentWillMount(id){
-        const lid = this.props.location.pathname.split("/")[3];
-        const lname = this.props.location.pathname.split("/")[4];
+        const params = this.props;
+        const index = this.props.location.pathname.split("/")[3];
+        const lecture = params.lecture.lectures[index];
+        const lid = lecture._id;
+        const lname = lecture.name;
         this.setState({ id: lid, name: lname });
     }
 

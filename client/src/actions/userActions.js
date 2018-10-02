@@ -38,7 +38,7 @@ export const deleteUser = (id) => dispatch => {
     )
 };
 
-export const loginUser = (user) => dispatch => {
+export const loginUser = (user, history) => dispatch => {
     axios
     .post('/api/users/login', user)
         .then(res => {
@@ -47,9 +47,15 @@ export const loginUser = (user) => dispatch => {
             setAuthToken(token);
             const decoded = jwt_decode(token);
             dispatch(setCurrentUser(decoded));
+            if(dispatch){
+            history.push('/homepage');
+                } else{
+                    history.push('/');
+                }
             }
         )
 };
+
 
 export const setCurrentUser = decoded => {
     return {

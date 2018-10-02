@@ -27,8 +27,8 @@ class LogInForm extends React.Component {
             email: this.state.email,
             password: this.state.password
         }
-        this.props.loginUser(currentUser);
-        this.props.history.push('/homepage');
+        this.props.loginUser(currentUser, this.props.history);
+        console.log(currentUser);
 
     }
 

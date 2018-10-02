@@ -2,7 +2,7 @@ import React from 'react';
 import {NavLink} from "react-router-dom";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { logoutUser } from '../actions/userActions';
 
 
@@ -44,10 +44,10 @@ class UserNavigation extends React.Component{
     }
 }
 
-UserNavigation.propTypes = {
-    logoutUser: PropTypes.func.isRequired,
-    auth: PropTypes.object.isRequired
-}
+// UserNavigation.propTypes = {
+//     logoutUser: PropTypes.func.isRequired,
+//     auth: PropTypes.object.isRequired
+// }
 
 const mapStateToProps = (state) => ({
     auth: state.auth
